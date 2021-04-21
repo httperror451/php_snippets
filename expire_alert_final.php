@@ -12,8 +12,8 @@ $alrt2 = date('Y-m-d', strtotime('+3 days')); //renewal alert 2 days
 
     
     // Prepare a select statement
-    $query = "SELECT c.firstName,c.lastName,c.email,t.userId,t.transactionId,t.purchaseType,t.serviceEndDate
- FROM transaction_master t JOIN customer_master c ON c.customerId = t.userId 
+    $query = "SELECT c.firstName,c.lastName,c.email,c.userId,c.transactionId,c.purchaseType,c.serviceEndDate
+ FROM  customer_master c
  WHERE DATEDIFF(CURRENT_DATE, serviceEndDate) = -3 OR DATEDIFF(CURRENT_DATE, serviceEndDate) = -2 OR DATEDIFF(CURRENT_DATE, serviceEndDate) = -1";
 
 
@@ -66,13 +66,13 @@ echo $message;
     // echo "Hi ". $firstName. " ".$lastName. " your ". $purchaseType. " expiring on:".$serviceEndDate. "<br>";
 
          $to = $email;
-         $subject = "ECCA Package Expiration Alert!";
+         $subject = "Package Expiration Alert!";
          
          // $message = "Hi ". $firstName. " ".$lastName. " your ". $purchaseType. " expiring on:".$serviceEndDate;
       
          
-         $header = "From:wasim.shaikh@nucleonai.co.in \r\n";
-         $header .= "Cc:wasim.shaikh@nucleonai.co.in \r\n";
+         $header = "From:sendfrom@gmail.com \r\n";
+         $header .= "Cc:sendtocc@gmail.com \r\n";
          $header .= "MIME-Version: 1.0\r\n";
          $header .= "Content-type: text/html\r\n";
          
